@@ -1,0 +1,15 @@
+{
+    "development":{
+    "host": "localhost",
+    "username": "postgres",
+    "password": "261216",
+    "database": "SiDREPCA_DB",
+    "dialect": "postgres",
+    "define":{
+        "timestamps":false,
+        "underscored": true
+    }
+    },
+    "test":{},
+    "production":{}
+}
