@@ -25,7 +25,7 @@ module.exports = {
         }
     },
     novaViagem: async (req, res) => {
-        const { porto_partida, porto_chegada, horario_partida, horario_chegada, qtd_carga, qtd_Passageiros, user_registo, IMO_navio } = req.body
+        const { porto_partida, porto_chegada, horario_partida, horario_chegada, qtd_carga, qtd_passageiros, user_registo, imo_navio } = req.body
         try {
             const viagem = await Viagem.create({
                 porto_partida, 
@@ -33,9 +33,9 @@ module.exports = {
                 horario_partida, 
                 horario_chegada, 
                 qtd_carga, 
-                qtd_Passageiros, 
+                qtd_passageiros, 
                 user_registo, 
-                IMO_navio 
+                imo_navio 
             });
             return res.status(201).json({ viagem })
 

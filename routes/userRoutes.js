@@ -4,7 +4,7 @@ const { novoUsuario, lerTodosUsuario, lerUmUsuario, apagarUsuario, atualizarUsua
 const router = express.Router()
 router.use(express.json())
 
-router.post('/novoUser',novoUsuario)
+router.post('/novouser',novoUsuario)
 router.get('/',lerTodosUsuario)
 router.get('/:id',lerUmUsuario)
 router.put('/atualizar/:id',atualizarUsuario)

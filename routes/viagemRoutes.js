@@ -4,7 +4,7 @@ const { novaViagem, lerTodasViagens, lerUmaViagem, apagarViagem, atualizarViagem
 const router = express.Router()
 router.use(express.json())
 
-router.post('/novaViagem',novaViagem)
+router.post('/novaviagem',novaViagem)
 router.get('/',lerTodasViagens)
 router.get('/:id',lerUmaViagem)
 router.put('/atualizar/:id',atualizarViagem)
