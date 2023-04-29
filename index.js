@@ -1,9 +1,14 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
 
-const viagemRoutes = require('./routes/viagemRoutes')
-const navioRoutes = require('./routes/navioRoutes')
-const userRoutes = require('./routes/userRoutes')
+const courseRoutes = require('./routes/courseRoutes')
+const departmentRoutes = require('./routes/departmentRoutes')
+const firmRoutes = require('./routes/firmRoutes')
+const informationRoutes = require('./routes/informationRoutes')
+const internshipRoutes = require('./routes/internshipRoutes')
+const sciRoutes = require('./routes/sciRoutes')
+const studentRoutes = require('./routes/studentRoutes')
+const tokenRoutes = require('./routes/tokenRoutes')
 
 const app = express()
 
@@ -17,48 +22,15 @@ app.use(
     })
 )
 
-app.use('/user/:key', async (req, res, next) => {
-    const { key } = req.params
-    const keyAccess = await bcrypt.hash(key, await bcrypt.genSalt(10));
-    bcrypt.compare(process.env.ACCESS_KEY, keyAccess, async (err, result) => {
-        if (result) {
-            next()
-        }
-        else {
-            res.status(400).json({ "Error": "Acesso não autorizado!" })
-        }
-    });
-})
-
-app.use('/navio/:key', async (req, res, next) => {
-    const { key } = req.params
-    const keyAccess = await bcrypt.hash(key, await bcrypt.genSalt(10));
-    bcrypt.compare(process.env.AGENTE_ACCESS_KEY, keyAccess, async (err, result) => {
-        if (result) {
-            next()
-        }
-        else {
-            res.status(400).json({ "Error": "Acesso não autorizado!" })
-        }
-    });
-})
-
-app.use('/viagem/:key', async (req, res, next) => {
-    const { key } = req.params
-    const keyAccess = await bcrypt.hash(key, await bcrypt.genSalt(10));
-    bcrypt.compare(process.env.AGENTE_ACCESS_KEY, keyAccess, async (err, result) => {
-        if (result) {
-            next()
-        }
-        else {
-            res.status(400).json({ "Error": "Acesso não autorizado!" })
-        }
-    });
-})
-
-app.use('/user/:key', userRoutes)
-app.use('/navio/:key', navioRoutes)
-app.use('/viagem/:key', viagemRoutes)
+//app.use('/course/:key', userRoutes)
+app.use('/course/', courseRoutes)
+app.use('/department/', departmentRoutes)
+app.use('/firm/', firmRoutes)
+app.use('/information/', informationRoutes)
+app.use('/internship/', internshipRoutes)
+app.use('/sci/', sciRoutes)
+app.use('/student/', studentRoutes)
+app.use('/token/', tokenRoutes)
 
 
 

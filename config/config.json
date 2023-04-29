@@ -3,7 +3,7 @@
     "host": "localhost",
     "username": "postgres",
     "password": "261216",
-    "database": "SiDREPCA_DB",
+    "database": "SGES_UM_DB",
     "dialect": "postgres",
     "define":{
         "timestamps":false,

@@ -3,34 +3,22 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('user', {
+    return queryInterface.createTable('department', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      nome: {
+      name: {
         type: Sequelize.STRING(70),
         allowNull: false,
         unique: true,
-      },
-      password: {
-        type: Sequelize.STRING(120),
-        allowNull: false,
-      },
-      valido: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
-      },
-      admin: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
       }
     })
   },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.dropTable('user')
+    return queryInterface.dropTable('department')
   }
 };

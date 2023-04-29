@@ -13,14 +13,4 @@ const ligar = async () => {
 }
 ligar();
 
-
-const Viagem = require('../models/Viagem')
-const Navio = require('../models/Navio')
-const User = require('../models/User')
-
-
-Viagem.init(dbConn)
-Navio.init(dbConn)
-User.init(dbConn)
-
 module.exports = dbConn

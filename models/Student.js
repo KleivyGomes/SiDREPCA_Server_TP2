@@ -1,18 +1,19 @@
 const { Model, DataTypes } = require('sequelize')
 
-class Viagem extends Model {
+class Student extends Model {
     static init(connection) {
         super.init({
-            porto_partida: {
+            number: {
                 type: DataTypes.STRING,
                 allowNull: false,
+                primaryKey:true,
                 validate: {
                     maxLength: val => {
                         if (val.length > 70) throw new Error("porto_partida deve conter no máximo 70 caractéres")                 
                     },
                 }
             },
-            porto_chegada: {
+            name: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
@@ -21,31 +22,39 @@ class Viagem extends Model {
                     },
                 }
             },
-            horario_partida: {
+            identifier: {
                 type: DataTypes.DATE,
                 allowNull: false,
             },
-            horario_chegada: {
+            date_of_birth: {
                 type: DataTypes.DATE,
                 allowNull: false,
             },
-            qtd_carga: {
+            gender: {
+                type: DataTypes.DATE,
+                allowNull: false,
+            },
+            local: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
-            qtd_passageiros: {
+            nationality: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            phone: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            email: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
         }, {
             sequelize: connection,
-            tableName: 'viagem',
+            tableName: 'student',
         })
-    }
-    static associate(models){
-        this.belongsTo(models.User, { foreignKey: 'user_registo', as: 'user' }) 
-        this.belongsTo(models.Navio, { foreignKey: 'IMO_navio', as: 'navio' })       
     }
 }
 
-module.exports = Viagem
+module.exports = Student

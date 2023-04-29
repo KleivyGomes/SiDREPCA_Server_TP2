@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize')
 
-class User extends Model {
+class Firm extends Model {
     static init(connection) {
         super.init({
-            nome: {
+            name: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
@@ -12,7 +12,7 @@ class User extends Model {
                     }
                 }
             }, 
-            password: {
+            local: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
@@ -20,20 +20,12 @@ class User extends Model {
                         if (val.length > 120) throw new Error("Password deve conter no máximo 120 caractéres")                 
                     }
                 }
-            },
-            valido: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: true,
-            },
-            admin: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false,
-            },
+            }
         }, {
             sequelize: connection,
-            tableName: 'user',
+            tableName: 'firm',
         })
     }
 }
 
-module.exports = User
+module.exports = Firm
